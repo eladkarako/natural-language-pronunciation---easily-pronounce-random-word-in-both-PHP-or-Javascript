@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div class="text-container"></div>
+<script src="random_word.js"></script>
+<style type="text/css">
+  html, body {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    overflow: hidden;
+    font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-size: xx-large;
+  }
+
+  .text-container {
+    word-wrap: break-word;
+  }
+
+  .paragraph:before {
+    margin-right: 10px;
+  }
+
+  .paragraph {
+    display: block;
+    text-transform: capitalize
+  }
+
+  .sentence {
+    border-radius: 10px;
+    padding: 2px 2px 2px 2px;
+  }
+
+  .sentence:after {
+    content: ".";
+  }
+
+  .sentence:hover {
+    background-color: rgba(249, 204, 157, .8);
+  }
+
+  .word {
+    transition: all .2s ease-in-out;
+    margin-left: 10px;
+  }
+
+  .word:first-letter {
+    color: red;
+  }
+
+  .word:after {
+    /*content: " ";*/
+  }
+
+  .word:nth-last-child:after {
+    content: "";
+  }
+
+  .word:hover {
+    border-bottom: 3px dashed green;
+  }
+</style>
+<script>
+  document.querySelector('.text-container').innerHTML = get_paragraphs_html(
+    get_paragraphs_of_easily_pronounced_random_phrases()
+  );
+
+</script>
+</body>
+</html>
